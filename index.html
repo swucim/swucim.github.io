@@ -105,7 +105,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/QlikView/" style="font-size: 10px;">QlikView</a>
+						<a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/QlikView/" style="font-size: 10px;">QlikView</a>
 					</div>
 				</section>
 				
@@ -166,6 +166,74 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Python-Web-Data-Spider-Dev" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/02/Python-Web-Data-Spider-Dev/" class="article-date">
+  	<time datetime="2015-12-02T02:50:05.000Z" itemprop="datePublished">2015-12-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/02/Python-Web-Data-Spider-Dev/">Python Web Data Spider Dev</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>####python操作mysql中文显示乱码</p>
+<ol>
+<li><p>Python文件设置编码 utf-8,文件前面加上:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#encoding=utf-<span class="number">8</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>MySQL数据库charset=utf-8</p>
+</li>
+<li><p>Python连接MySQL是加上参数 charset=utf8</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">con = mdb.<span class="function"><span class="title">Connect</span><span class="params">(<span class="string">'localhost'</span>,<span class="string">'root'</span>,<span class="string">'jobin'</span>,<span class="string">'zmld'</span>,charset=<span class="string">'utf8'</span>)</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置Python的默认编码为 utf-8:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sys.<span class="function"><span class="title">setdefaultencoding</span><span class="params">(utf-<span class="number">8</span>)</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-一篇关于Qlikview的演讲稿" class="article article-type-post" itemscope itemprop="blogPost">
   
