@@ -1,0 +1,395 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>QlikView11读书笔记 6 | DataVizArt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Jack">
+    
+    <meta name="description" content="第六章 building dashboard 创建dashboardDAR策略
+D: Dashboard users, 常见于企业中高层管理者，他们仅需要关注某些KPI指标的状态，需要能够快速的鸟瞰整体信息
+A: Analysis users, 常见于业务人员，需要真正去了解指标背后的数据细节，不仅">
+    
+    
+    
+    
+    <link rel="alternate" href="/rss.xml" title="DataVizArt" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="DataVizArt" title="DataVizArt"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="DataVizArt">DataVizArt</a></h1>
+				<h2 class="blog-motto">数据可视化之美</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/about/resume.html">Resume</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/08/28/QlikView11读书笔记-6/" title="QlikView11读书笔记 6" itemprop="url">QlikView11读书笔记 6</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Jack">Jack</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-08-28T08:40:31.000Z" itemprop="datePublished">2015-08-28</time>
+    Updated:<time datetime="2015-12-05T08:55:10.931Z" itemprop="dateModified">2015-12-05</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第六章_building_dashboard_创建dashboard"><span class="toc-number">1.</span> <span class="toc-text">第六章 building dashboard 创建dashboard</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#DAR策略"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">DAR策略</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#常见图表类型及介绍："><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">常见图表类型及介绍：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+		</div>
+		
+		<h1 id="第六章_building_dashboard_创建dashboard">第六章 building dashboard 创建dashboard</h1><h5 id="DAR策略">DAR策略</h5><ul>
+<li>D: Dashboard users, 常见于企业中高层管理者，他们仅需要关注某些KPI指标的状态，需要能够快速的鸟瞰整体信息</li>
+<li>A: Analysis users, 常见于业务人员，需要真正去了解指标背后的数据细节，不仅知道发生了什么，还要知道为什么发生，需要为这种类型用户提供多种方式查询分析数据，做情景假设分析等</li>
+<li>R: Report users, 大部分情况下，这种用户仅需要一些以表格形式的静态数据， 实现方式上常用straight table或pivot table。</li>
+</ul>
+<h5 id="常见图表类型及介绍：">常见图表类型及介绍：</h5><ul>
+<li>Bar chart: 条形图最普通，也最通用，可用于表现趋势、对比等多种场合。</li>
+<li>Line chart: 折线图，常用于表现变化趋势。</li>
+<li>Combo chart: 组合图，以上两者的结合。</li>
+<li>Pie chart: 饼图，用于表现部分与总体以及其它部分的对比关系。</li>
+<li>Scatter chart: 散点图，用于表现因变量（expression）随自变量（dimension）变化的变化趋势，或相关性分析；</li>
+<li>Guage chart: 仪表盘，适合百分比类型的KPI展现；<br><img src="http://7xoxf6.com1.z0.glb.clouddn.com/qlikview11notes61.png" alt=""></li>
+<li>Radar chart: 雷达图， 用于表现周期性变化的数据指标；<br><img src="http://7xoxf6.com1.z0.glb.clouddn.com/qlikview11notes62.png" alt=""></li>
+<li>Grid chart: 网格图，可包含3个不同的维度<br><img src="http://7xoxf6.com1.z0.glb.clouddn.com/qlikview11notes63.png" alt=""></li>
+<li>Block chart: 另一种形式的pie chart<br><img src="http://7xoxf6.com1.z0.glb.clouddn.com/qlikview11notes64.png" alt=""></li>
+<li>Funnel chart: 漏斗图，常见的用法是销售漏斗图<br><img src="http://7xoxf6.com1.z0.glb.clouddn.com/qlikview11notes65.png" alt=""></li>
+<li>Mekko chart: 本质上是多了一个维度的条形图，多出来的维度表现条形图的宽度；<br><img src="http://7xoxf6.com1.z0.glb.clouddn.com/qlikview11notes66.png" alt=""></li>
+<li>Straight table: regular table, 好处是可以用来做mini chart<br><img src="http://7xoxf6.com1.z0.glb.clouddn.com/qlikview11notes67.png" alt=""></li>
+<li><p>Pivot table: 水晶透视表</p>
+</li>
+<li><p>最后，再上一张大杀器：<br><img src="http://7xoxf6.com1.z0.glb.clouddn.com/qlikview11notes68.png" alt=""></p>
+</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/QlikView/">QlikView</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/QlikView11读书笔记/">QlikView11读书笔记</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/08/28/QlikView11读书笔记-6/" data-title="QlikView11读书笔记 6 | DataVizArt" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/09/03/中美军力对比图-China-US-military-comparison/" title="中美军力对比图 China &amp; US military comparison">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  中美军力对比图 China &amp; US military comparison</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/08/27/QlikView11读书笔记-5/"  title="QlikView11读书笔记 5">
+ <strong>NEXT:</strong><br/> 
+ <span>QlikView11读书笔记 5
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第六章_building_dashboard_创建dashboard"><span class="toc-number">1.</span> <span class="toc-text">第六章 building dashboard 创建dashboard</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#DAR策略"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">DAR策略</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#常见图表类型及介绍："><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">常见图表类型及介绍：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  <div class="rsspart">
+	<a href="/rss.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+			<li><a href="/categories/QlikView11读书笔记/" title="QlikView11读书笔记">QlikView11读书笔记<sup>7</sup></a></li>
+		
+			<li><a href="/categories/业界杂谈/" title="业界杂谈">业界杂谈<sup>2</sup></a></li>
+		
+			<li><a href="/categories/数据可视化作品/" title="数据可视化作品">数据可视化作品<sup>2</sup></a></li>
+		
+			<li><a href="/categories/数据可视化开发/" title="数据可视化开发">数据可视化开发<sup>1</sup></a></li>
+		
+			<li><a href="/categories/资源工具汇总/" title="资源工具汇总">资源工具汇总<sup>4</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/API/" title="API">API<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Python/" title="Python">Python<sup>2</sup></a></li>
+		
+			<li><a href="/tags/QlikView/" title="QlikView">QlikView<sup>11</sup></a></li>
+		
+			<li><a href="/tags/创业/" title="创业">创业<sup>1</sup></a></li>
+		
+			<li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li>
+		
+			<li><a href="/tags/爬虫/" title="爬虫">爬虫<sup>1</sup></a></li>
+		
+			<li><a href="/tags/转载/" title="转载">转载<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+      <li><a href="http://hexo.io" target="_blank" title="Hexo">Hexo</a></li>
+    </ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
+		
+		<a href="http://yoursite.com" target="_blank" title="Jack">Jack</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+  </body>
+</html>
+
