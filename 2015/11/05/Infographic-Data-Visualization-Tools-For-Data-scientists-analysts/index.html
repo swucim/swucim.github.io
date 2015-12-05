@@ -4,17 +4,13 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>实体关系模型和维度模型 | DataVizArt</title>
+    <title>Infographic: Data Visualization Tools For Data scientists &amp; analysts | DataVizArt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Jack">
     
-    <meta name="description" content="关系模型
-
-以遵循第三范式（3NF）为基础的关系模型，从ER图的“观感”上来说，较为松散、零碎，物理表数量多，而数据冗余程度低。由于数据分布于众多的表中，这些数据可以更为灵活地被应用，功能性较强
-主要应用于事务型数据库
-在数据仓库领域的倡导者：Inmon。
-在Inmon的理念中（可见“参考3”链接）">
+    <meta name="description" content="If we create a similar ordering on ability to interpret data in various forms – the order will surely look like this:
+Text &amp;lt; Table &amp;lt; Charts &amp;lt;">
     
     
     
@@ -77,15 +73,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/25/实体关系模型和维度模型/" title="实体关系模型和维度模型" itemprop="url">实体关系模型和维度模型</a>
+      <a href="/2015/11/05/Infographic-Data-Visualization-Tools-For-Data-scientists-analysts/" title="Infographic: Data Visualization Tools For Data scientists &amp; analysts" itemprop="url">Infographic: Data Visualization Tools For Data scientists &amp; analysts</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Jack">Jack</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-09-25T12:17:05.000Z" itemprop="datePublished">2015-09-25</time>
-    Updated:<time datetime="2015-12-05T12:22:06.723Z" itemprop="dateModified">2015-12-05</time>
+    <time datetime="2015-11-05T12:38:23.000Z" itemprop="datePublished">2015-11-05</time>
+    Updated:<time datetime="2015-12-05T12:42:07.123Z" itemprop="dateModified">2015-12-05</time>
     
   </p>
 </header>
@@ -94,54 +90,34 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
-		<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#关系模型"><span class="toc-number">1.</span> <span class="toc-text">关系模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#维度模型"><span class="toc-number">2.</span> <span class="toc-text">维度模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优劣"><span class="toc-number">3.</span> <span class="toc-text">优劣</span></a></li></ol>
+		
 		</div>
 		
-		<h4 id="关系模型">关系模型</h4><p><img src="http://7xoxf6.com1.z0.glb.clouddn.com/resourcemodel1.jpg" alt=""></p>
-<ol>
-<li>以遵循第三范式（3NF）为基础的关系模型，从ER图的“观感”上来说，较为松散、零碎，物理表数量多，而数据冗余程度低。由于数据分布于众多的表中，这些数据可以更为灵活地被应用，功能性较强</li>
-<li>主要应用于事务型数据库</li>
-<li>在数据仓库领域的倡导者：Inmon。</li>
-<li>在Inmon的理念中（可见“参考3”链接），DW并不直接用于DSS/BI等应用，而是作为一个平台，其模型为3NF关系模型，对于更上层的应用，通过建立小的数据集市或其他方式（这时候可以用维度模型），来满足具体的应用要求——即数据仓库作为数据集市的数据源，数据集市来满足具体应用（如BI、DSS）的需求</li>
-</ol>
-<h4 id="维度模型">维度模型</h4><p><img src="http://7xoxf6.com1.z0.glb.clouddn.com/resourcemodel2.jpg" alt=""></p>
-<ol>
-<li>尽管底层本质在物理实现上还是表和关系，但模型概念上有了一定的抽象，表分为维度表和事实表两种，事实表中以数字型为主，包含了度量信息，而维度表常以文本类型为主，常常被作为事实表的“上下文”，为那些度量数值添加了业务意义</li>
-<li>维度表与事实表常以星型模型、雪花模型、星座模型等形式进行组织。</li>
-<li>符合同一个主题的维度（事实表）数据，往往被统一整合（Conform）到一个维表（事实表）中，表的数量较之关系模型要少些</li>
-<li>维度模型具有更强的业务意义，每个表囊括了某主题的（几乎）全部信息</li>
-<li>ETL的过程中，如果目标是维度模型，源是关系模型，往往涉及解范式过程（denormalize）</li>
-<li>维度模型并非没有关系，维表与事实表之间有关系，维表与维表之间也可能有关系（雪花模型）</li>
-<li>维度模型中的表通常都有数字类型的主键，并为之添加索引便于提升查询效率</li>
-<li>在数据仓库领域的倡导者：Kimball</li>
-</ol>
-<h4 id="优劣">优劣</h4><ol>
-<li>对于涉及多表连接以及聚合计算的查询请求，关系模型不如维度模型查询效率高</li>
-<li>维度模型更适合作为分析型应用（OLAP、BI）的基础——易用，易理解，查询效率高</li>
-<li>关系模型更适于频繁update、insert的应用（事务型应用）</li>
-<li>在实时数据流上，普遍认为3NF比维度模型更具实时性处理的优势，因为前者更贴近OLTP数据源，涉及到的转换、聚合相对更少些（可见“参考4”链接）</li>
-<li>个人感觉，关系模型更面向“技术”层面，要满足3NF对表进行范式化，属于物理模型；而维度模型，其物理底层实际上还是表和关系，但从概念上有了进一步抽象，面向“业务”层面，尤其符合DW的主题特性。<br>在数据仓库领域对这二者模型的讨论，往往又牵涉到构建数据集市的方式，这就涉及Kimball vs Inmon的所谓“圣战”了。这方面没有定论，也不可能有定论。不管黑猫白猫，捉到老鼠就是好猫；不管关系还是维度，高效解决问题的就是好模型。参考4的连接中有人把这两种模型比作Ford和Chevy，也有比作高速公路和城市公路的，其实大可不必争论好坏，特有特色而已。另外，我不知道有多少把DW当做数据平台，上层再架其他数据平台，以DW为数据源来满足更上层需要的，添加一层尽管减少了耦合，让DW更为通用，但同时带来了更大的复杂度：DW-&gt;上层数据平台需要新的ETL过程；上层数据平台又要花费更多的开发代价；多了一层，实时的难度加大。</li>
-</ol>
+		<p>If we create a similar ordering on ability to interpret data in various forms – the order will surely look like this:</p>
+<p>Text &lt; Table &lt; Charts &lt; Interactive Charts</p>
+<p>On the other hand, the amount of data which needs processing and interpretation is increasing by the second. Combined, these two factors are making data visualization an integral form of data science workflow – probably more important than ever before.</p>
+<p>In order to address this need for creating simple, yet powerful visualization, there are multiple tools which can come in handy. However, a lot of analysts &amp; data scientists are not aware of these tools. Hence, we have created an infographic, which provides high level overview of various tools people use for creating data visualization.<br><img src="http://7xoxf6.com1.z0.glb.clouddn.com/resourcez.jpg" alt=""></p>
+<p><a href="http://www.analyticsvidhya.com/blog/2015/09/infographic-tools-data-visualization/" target="_blank" rel="external">原文地址</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/数据模型/">数据模型</a><a href="/tags/转载/">转载</a>
+  <span></span> <a href="/tags/工具/">工具</a><a href="/tags/数据可视化/">数据可视化</a><a href="/tags/转载/">转载</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/数据可视化开发/">数据可视化开发</a>
+  <a class="article-category-link" href="/categories/资源工具汇总/">资源工具汇总</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2015/09/25/实体关系模型和维度模型/" data-title="实体关系模型和维度模型 | DataVizArt" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2015/11/05/Infographic-Data-Visualization-Tools-For-Data-scientists-analysts/" data-title="Infographic: Data Visualization Tools For Data scientists &amp; analysts | DataVizArt" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -151,18 +127,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/27/Hide-Fields-In-Current-Selection-Box/" title="Hide Fields In Current Selection Box">
+ <a href="/2015/11/21/一篇关于Qlikview的演讲稿/" title="一篇关于Qlikview的演讲稿">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  Hide Fields In Current Selection Box</span>
+  一篇关于Qlikview的演讲稿</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/09/20/Interval-Match-Feature-In-Qlikview/"  title="Interval Match Feature In Qlikview">
+<a href="/2015/10/21/利用notepad-打造Qlikview专属代码编辑器/"  title="利用notepad++打造Qlikview专属代码编辑器">
  <strong>NEXT:</strong><br/> 
- <span>Interval Match Feature In Qlikview
+ <span>利用notepad++打造Qlikview专属代码编辑器
 </span>
 </a>
 </div>
@@ -175,7 +151,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
-  <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#关系模型"><span class="toc-number">1.</span> <span class="toc-text">关系模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#维度模型"><span class="toc-number">2.</span> <span class="toc-text">维度模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优劣"><span class="toc-number">3.</span> <span class="toc-text">优劣</span></a></li></ol>
+  
   </div>
 
 <div id="asidepart">
