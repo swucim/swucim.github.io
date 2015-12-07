@@ -4,14 +4,17 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>QlikView11读书笔记 6 | DataVizArt</title>
+    <title>markdown语法和工具 | DataVizArt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Jack">
     
-    <meta name="description" content="第六章 building dashboard 创建dashboardDAR策略
-D: Dashboard users, 常见于企业中高层管理者，他们仅需要关注某些KPI指标的状态，需要能够快速的鸟瞰整体信息
-A: Analysis users, 常见于业务人员，需要真正去了解指标背后的数据细节，不仅">
+    <meta name="description" content="一 简明语法
+来自：  http://maxiang.info/
+
+二 markdown 语法：https://github.com/rhiokim/haroopad/blob/develop/Syntax.md
+三 markdown工具总结：http://appinn.me/d/83 
+四 win">
     
     
     
@@ -74,15 +77,15 @@ A: Analysis users, 常见于业务人员，需要真正去了解指标背后的�
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/28/QlikView11读书笔记-6/" title="QlikView11读书笔记 6" itemprop="url">QlikView11读书笔记 6</a>
+      <a href="/2015/12/01/markdown语法和工具/" title="markdown语法和工具" itemprop="url">markdown语法和工具</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Jack">Jack</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-08-28T08:40:31.000Z" itemprop="datePublished">2015-08-28</time>
-    Updated:<time datetime="2015-12-06T11:13:06.145Z" itemprop="dateModified">2015-12-06</time>
+    <time datetime="2015-12-01T06:40:21.000Z" itemprop="datePublished">2015-12-01</time>
+    Updated:<time datetime="2015-12-07T07:05:58.405Z" itemprop="dateModified">2015-12-07</time>
     
   </p>
 </header>
@@ -91,52 +94,43 @@ A: Analysis users, 常见于业务人员，需要真正去了解指标背后的�
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第六章_building_dashboard_创建dashboard"><span class="toc-number">1.</span> <span class="toc-text">第六章 building dashboard 创建dashboard</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#DAR策略"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">DAR策略</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#常见图表类型及介绍："><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">常见图表类型及介绍：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+		
 		</div>
 		
-		<h1 id="第六章_building_dashboard_创建dashboard">第六章 building dashboard 创建dashboard</h1><h5 id="DAR策略">DAR策略</h5><ul>
-<li>D: Dashboard users, 常见于企业中高层管理者，他们仅需要关注某些KPI指标的状态，需要能够快速的鸟瞰整体信息</li>
-<li>A: Analysis users, 常见于业务人员，需要真正去了解指标背后的数据细节，不仅知道发生了什么，还要知道为什么发生，需要为这种类型用户提供多种方式查询分析数据，做情景假设分析等</li>
-<li>R: Report users, 大部分情况下，这种用户仅需要一些以表格形式的静态数据， 实现方式上常用straight table或pivot table。</li>
-</ul>
-<h5 id="常见图表类型及介绍：">常见图表类型及介绍：</h5><ul>
-<li>Bar chart: 条形图最普通，也最通用，可用于表现趋势、对比等多种场合。</li>
-<li>Line chart: 折线图，常用于表现变化趋势。</li>
-<li>Combo chart: 组合图，以上两者的结合。</li>
-<li>Pie chart: 饼图，用于表现部分与总体以及其它部分的对比关系。</li>
-<li>Scatter chart: 散点图，用于表现因变量（expression）随自变量（dimension）变化的变化趋势，或相关性分析；</li>
-<li>Guage chart: 仪表盘，适合百分比类型的KPI展现；<br><img src="http://7xoxf6.com1.z0.glb.clouddn.com/qlikview11notes61.png" alt=""></li>
-<li>Radar chart: 雷达图， 用于表现周期性变化的数据指标；<br><img src="http://7xoxf6.com1.z0.glb.clouddn.com/qlikview11notes62.png" alt=""></li>
-<li>Grid chart: 网格图，可包含3个不同的维度<br><img src="http://7xoxf6.com1.z0.glb.clouddn.com/qlikview11notes63.png" alt=""></li>
-<li>Block chart: 另一种形式的pie chart<br><img src="http://7xoxf6.com1.z0.glb.clouddn.com/qlikview11notes64.png" alt=""></li>
-<li>Funnel chart: 漏斗图，常见的用法是销售漏斗图<br><img src="http://7xoxf6.com1.z0.glb.clouddn.com/qlikview11notes65.png" alt=""></li>
-<li>Mekko chart: 本质上是多了一个维度的条形图，多出来的维度表现条形图的宽度；<br><img src="http://7xoxf6.com1.z0.glb.clouddn.com/qlikview11notes66.png" alt=""></li>
-<li>Straight table: regular table, 好处是可以用来做mini chart<br><img src="http://7xoxf6.com1.z0.glb.clouddn.com/qlikview11notes67.png" alt=""></li>
-<li><p>Pivot table: 水晶透视表</p>
-</li>
-<li><p>最后，再上一张大杀器：<br><img src="http://7xoxf6.com1.z0.glb.clouddn.com/qlikview11notes68.png" alt=""></p>
-</li>
-</ul>
+		<p>一 简明语法</p>
+<p>来自：  <a href="http://maxiang.info/" target="_blank" rel="external">http://maxiang.info/</a></p>
+<p><img src="http://7xoxf6.com1.z0.glb.clouddn.com/resourcemarkdown.png" alt=""></p>
+<p>二 markdown 语法：<br><a href="https://github.com/rhiokim/haroopad/blob/develop/Syntax.md" target="_blank" rel="external">https://github.com/rhiokim/haroopad/blob/develop/Syntax.md</a></p>
+<p>三 markdown工具总结：<br><a href="http://appinn.me/d/83" target="_blank" rel="external">http://appinn.me/d/83</a> </p>
+<p>四 windows markdown 工具：<br>cutemarked(推荐）<br>这个很不错，可以配置github的css样式，可以导出为html和pdf<br><a href="http://cloose.github.io/CuteMarkEd/" target="_blank" rel="external">http://cloose.github.io/CuteMarkEd/</a> </p>
+<p>haroopad<br>下载不下来，但是看起来很不错<br><a href="http://pad.haroopress.com/user.html" target="_blank" rel="external">http://pad.haroopress.com/user.html</a><br><a href="https://github.com/rhiokim/haroopad/" target="_blank" rel="external">https://github.com/rhiokim/haroopad/</a></p>
+<p>markdownsharpeditor<br>来自日本的工具，美工做的不是很好，但是可以支持MD extra的语法，可以使用<br><a href="http://hibara.org/software/markdownsharpeditor/" target="_blank" rel="external">http://hibara.org/software/markdownsharpeditor/</a>  </p>
+<p>markdownpad<br>这个大家推荐的多，但是免费版的功能有限制，不喜欢。<br><a href="http://www.markdownpad.com/" target="_blank" rel="external">http://www.markdownpad.com/</a> </p>
+<p>五 在线的markdown工具：<br>markdown-live-editor<br>如果没有安装本地的MD客户端，临时需要编辑MD的话，可以使用，不需要注册。在线编辑一个md文件，编辑后copy MD或HTML。<br><a href="http://jrmoran.com/playground/markdown-live-editor/" target="_blank" rel="external">http://jrmoran.com/playground/markdown-live-editor/</a>  </p>
+<p>meeditor （推荐，但是不知道现在用的人多不，希望作者继续坚持发展）<br>需要注册，支持云存储。<br><a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">https://www.zybuluo.com/mdeditor</a>  </p>
+<p>简书<br>支持云存储，相互共享，还是不错的。上面文学方面的作者比较多。<br><a href="http://jianshu.io/" target="_blank" rel="external">http://jianshu.io/</a></p>
+<p>stackedit<br>需要使用google或fackbook帐号，不是咱的菜<br><a href="https://stackedit.io" target="_blank" rel="external">https://stackedit.io</a>  </p>
+<p>完！</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/QlikView/">QlikView</a>
+  <span></span> <a href="/tags/markdown/">markdown</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/QlikView11读书笔记/">QlikView11读书笔记</a>
+  <a class="article-category-link" href="/categories/资源工具汇总/">资源工具汇总</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2015/08/28/QlikView11读书笔记-6/" data-title="QlikView11读书笔记 6 | DataVizArt" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2015/12/01/markdown语法和工具/" data-title="markdown语法和工具 | DataVizArt" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -146,18 +140,18 @@ A: Analysis users, 常见于业务人员，需要真正去了解指标背后的�
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/09/03/中美军力对比图-China-US-military-comparison/" title="中美军力对比图 China &amp; US military comparison">
+ <a href="/2015/12/02/Python-Web-Data-Spider-Dev/" title="Python Web Data Spider Dev">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  中美军力对比图 China &amp; US military comparison</span>
+  Python Web Data Spider Dev</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/08/27/QlikView11读书笔记-5/"  title="QlikView11读书笔记 5">
+<a href="/2015/12/01/中国互联网圈的14个创业派系/"  title="中国互联网圈的14个创业派系">
  <strong>NEXT:</strong><br/> 
- <span>QlikView11读书笔记 5
+ <span>中国互联网圈的14个创业派系
 </span>
 </a>
 </div>
@@ -174,7 +168,7 @@ A: Analysis users, 常见于业务人员，需要真正去了解指标背后的�
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第六章_building_dashboard_创建dashboard"><span class="toc-number">1.</span> <span class="toc-text">第六章 building dashboard 创建dashboard</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#DAR策略"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">DAR策略</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#常见图表类型及介绍："><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">常见图表类型及介绍：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+  
   </div>
 
 <div id="asidepart">
