@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hide Fields In Current Selection Box | DataVizArt</title>
+    <title>中国名医琅琊榜数据分析2-数据可视化的QlikView实现 | DataVizArt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Jack">
     
-    <meta name="description" content="Introduction:When loading data from complex data sources there are fields in the data model that are required to be pulled in that you do not want to ">
+    <meta name="description" content="承接上文，本文继续对收集的中国名医琅琊榜数据进行建模并使用QlikView实现可视化的Dashboard。">
     
     
     
@@ -72,15 +72,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/27/Hide-Fields-In-Current-Selection-Box/" title="Hide Fields In Current Selection Box" itemprop="url">Hide Fields In Current Selection Box</a>
+      <a href="/2015/12/09/中国名医琅琊榜数据分析2-数据可视化的QlikView实现/" title="中国名医琅琊榜数据分析2-数据可视化的QlikView实现" itemprop="url">中国名医琅琊榜数据分析2-数据可视化的QlikView实现</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Jack">Jack</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-09-27T12:23:49.000Z" itemprop="datePublished">2015-09-27</time>
-    Updated:<time datetime="2015-12-05T12:27:48.211Z" itemprop="dateModified">2015-12-05</time>
+    <time datetime="2015-12-09T09:00:28.000Z" itemprop="datePublished">2015-12-09</time>
+    Updated:<time datetime="2015-12-09T09:02:35.258Z" itemprop="dateModified">2015-12-09</time>
     
   </p>
 </header>
@@ -89,55 +89,30 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
-		<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Introduction:"><span class="toc-number">1.</span> <span class="toc-text">Introduction:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Explanation:"><span class="toc-number">2.</span> <span class="toc-text">Explanation:</span></a></li></ol>
+		
 		</div>
 		
-		<h4 id="Introduction:">Introduction:</h4><p>When loading data from complex data sources there are fields in the data model that are required to be pulled in that you do not want to be visible to the end users. We may just want them to treat the fields like System Fields.</p>
-<p>This can be achieved by a System Variable named “HidePrefix”. Using this we can make our own fields visible or not based on the same check box.</p>
-<p>Let me explain this functionality with an example.</p>
-<h4 id="Explanation:">Explanation:</h4><p>Decide the character which you would like to use as prefix fields you wish to hide. In this example, the character [~] is used to prefix.</p>
-<ol>
-<li>set HidePrefix=’~’ ;</li>
-</ol>
-<ol>
-<li>Loading a sample data in the qlikview to explain the functionality.</li>
-</ol>
-<p><img src="http://7xoxf6.com1.z0.glb.clouddn.com/devhide1.png" alt=""></p>
-<ol>
-<li>Selecting the fields and having a “current selection” object to explain the example.</li>
-</ol>
-<p><img src="http://7xoxf6.com1.z0.glb.clouddn.com/devhide2.png" alt=""></p>
-<ol>
-<li>Include a preload statement to include column to be prefixed as shown in the screenshot below.</li>
-</ol>
-<p><img src="http://7xoxf6.com1.z0.glb.clouddn.com/devhide3.png" alt=""></p>
-<ol>
-<li>Now, reload the QVW to see the prefixed column. Once the prefixed column is visible in the qlikview, try selecting the field.</li>
-</ol>
-<p><img src="http://7xoxf6.com1.z0.glb.clouddn.com/devhide4.png" alt=""></p>
-<ol>
-<li>The prefixed column selection will not be available in the Current Selection object in qlikview.</li>
-</ol>
+		<p>承接上文，本文继续对收集的中国名医琅琊榜数据进行建模并使用QlikView实现可视化的Dashboard。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/QlikView/">QlikView</a><a href="/tags/转载/">转载</a>
+  <span></span> <a href="/tags/QlikView/">QlikView</a><a href="/tags/数据模型/">数据模型</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/数据可视化开发/">数据可视化开发</a>
+  <a class="article-category-link" href="/categories/数据可视化作品/">数据可视化作品</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2015/09/27/Hide-Fields-In-Current-Selection-Box/" data-title="Hide Fields In Current Selection Box | DataVizArt" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2015/12/09/中国名医琅琊榜数据分析2-数据可视化的QlikView实现/" data-title="中国名医琅琊榜数据分析2-数据可视化的QlikView实现 | DataVizArt" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -146,19 +121,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/10/12/How-to-become-a-QlikView-Developer/" title="How to become a QlikView Developer">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  How to become a QlikView Developer</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/09/25/实体关系模型和维度模型/"  title="实体关系模型和维度模型">
+<a href="/2015/12/06/中国名医琅琊榜数据分析实现-1/"  title="中国名医琅琊榜数据分析1-数据爬取">
  <strong>NEXT:</strong><br/> 
- <span>实体关系模型和维度模型
+ <span>中国名医琅琊榜数据分析1-数据爬取
 </span>
 </a>
 </div>
@@ -175,7 +142,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
-  <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Introduction:"><span class="toc-number">1.</span> <span class="toc-text">Introduction:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Explanation:"><span class="toc-number">2.</span> <span class="toc-text">Explanation:</span></a></li></ol>
+  
   </div>
 
 <div id="asidepart">
