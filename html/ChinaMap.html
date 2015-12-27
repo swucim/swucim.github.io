@@ -51,12 +51,11 @@
     }
 </style>
 <body>
-<div id="tooltip"></div><!-- div to hold tooltip. -->
+<div id="tooltip"></div>
 <svg width="560" height="470" id="statesvg"/> <!-- svg to hold the map. -->
 <script src="/js/china-zh2.js"></script> <!-- creates uStates. -->
 <script src="/js/d3.min.js"></script>
 <script>
-
     function tooltipHtml(n, d){    /* function to create html content string in tooltip div. */
         return "<h4>"+n+"</h4><table>"+
             "<tr><td>Low</td><td>"+(d.low)+"</td></tr>"+
