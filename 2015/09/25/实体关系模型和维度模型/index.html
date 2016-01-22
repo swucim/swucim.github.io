@@ -1,0 +1,438 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>实体关系模型和维度模型 | DataVizArt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Jack">
+    
+    <meta name="description" content="关系模型
+
+以遵循第三范式（3NF）为基础的关系模型，从ER图的“观感”上来说，较为松散、零碎，物理表数量多，而数据冗余程度低。由于数据分布于众多的表中，这些数据可以更为灵活地被应用，功能性较强
+主要应用于事务型数据库
+在数据仓库领域的倡导者：Inmon。
+在Inmon的理念中（可见“参考3”链接）">
+    
+    
+    
+    
+    <link rel="alternate" href="/rss.xml" title="DataVizArt" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="DataVizArt" title="DataVizArt"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="DataVizArt">DataVizArt</a></h1>
+				<h2 class="blog-motto">数据可视化之美</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+						<li><a href="/about/resume.html">Resume</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/25/实体关系模型和维度模型/" title="实体关系模型和维度模型" itemprop="url">实体关系模型和维度模型</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Jack">Jack</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-09-25T12:17:05.000Z" itemprop="datePublished">2015-09-25</time>
+    Updated:<time datetime="2016-01-22T07:59:02.000Z" itemprop="dateModified">2016-01-22</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#关系模型"><span class="toc-number">1.</span> <span class="toc-text">关系模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#维度模型"><span class="toc-number">2.</span> <span class="toc-text">维度模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优劣"><span class="toc-number">3.</span> <span class="toc-text">优劣</span></a></li></ol>
+		</div>
+		
+		<h4 id="关系模型">关系模型</h4><p><img src="http://7xoxf6.com1.z0.glb.clouddn.com/resourcemodel1.jpg" alt=""></p>
+<ol>
+<li>以遵循第三范式（3NF）为基础的关系模型，从ER图的“观感”上来说，较为松散、零碎，物理表数量多，而数据冗余程度低。由于数据分布于众多的表中，这些数据可以更为灵活地被应用，功能性较强</li>
+<li>主要应用于事务型数据库</li>
+<li>在数据仓库领域的倡导者：Inmon。</li>
+<li>在Inmon的理念中（可见“参考3”链接），DW并不直接用于DSS/BI等应用，而是作为一个平台，其模型为3NF关系模型，对于更上层的应用，通过建立小的数据集市或其他方式（这时候可以用维度模型），来满足具体的应用要求——即数据仓库作为数据集市的数据源，数据集市来满足具体应用（如BI、DSS）的需求</li>
+</ol>
+<h4 id="维度模型">维度模型</h4><p><img src="http://7xoxf6.com1.z0.glb.clouddn.com/resourcemodel2.jpg" alt=""></p>
+<ol>
+<li>尽管底层本质在物理实现上还是表和关系，但模型概念上有了一定的抽象，表分为维度表和事实表两种，事实表中以数字型为主，包含了度量信息，而维度表常以文本类型为主，常常被作为事实表的“上下文”，为那些度量数值添加了业务意义</li>
+<li>维度表与事实表常以星型模型、雪花模型、星座模型等形式进行组织。</li>
+<li>符合同一个主题的维度（事实表）数据，往往被统一整合（Conform）到一个维表（事实表）中，表的数量较之关系模型要少些</li>
+<li>维度模型具有更强的业务意义，每个表囊括了某主题的（几乎）全部信息</li>
+<li>ETL的过程中，如果目标是维度模型，源是关系模型，往往涉及解范式过程（denormalize）</li>
+<li>维度模型并非没有关系，维表与事实表之间有关系，维表与维表之间也可能有关系（雪花模型）</li>
+<li>维度模型中的表通常都有数字类型的主键，并为之添加索引便于提升查询效率</li>
+<li>在数据仓库领域的倡导者：Kimball</li>
+</ol>
+<h4 id="优劣">优劣</h4><ol>
+<li>对于涉及多表连接以及聚合计算的查询请求，关系模型不如维度模型查询效率高</li>
+<li>维度模型更适合作为分析型应用（OLAP、BI）的基础——易用，易理解，查询效率高</li>
+<li>关系模型更适于频繁update、insert的应用（事务型应用）</li>
+<li>在实时数据流上，普遍认为3NF比维度模型更具实时性处理的优势，因为前者更贴近OLTP数据源，涉及到的转换、聚合相对更少些（可见“参考4”链接）</li>
+<li>个人感觉，关系模型更面向“技术”层面，要满足3NF对表进行范式化，属于物理模型；而维度模型，其物理底层实际上还是表和关系，但从概念上有了进一步抽象，面向“业务”层面，尤其符合DW的主题特性。<br>在数据仓库领域对这二者模型的讨论，往往又牵涉到构建数据集市的方式，这就涉及Kimball vs Inmon的所谓“圣战”了。这方面没有定论，也不可能有定论。不管黑猫白猫，捉到老鼠就是好猫；不管关系还是维度，高效解决问题的就是好模型。参考4的连接中有人把这两种模型比作Ford和Chevy，也有比作高速公路和城市公路的，其实大可不必争论好坏，特有特色而已。另外，我不知道有多少把DW当做数据平台，上层再架其他数据平台，以DW为数据源来满足更上层需要的，添加一层尽管减少了耦合，让DW更为通用，但同时带来了更大的复杂度：DW-&gt;上层数据平台需要新的ETL过程；上层数据平台又要花费更多的开发代价；多了一层，实时的难度加大。</li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/数据模型/">数据模型</a><a href="/tags/转载/">转载</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/数据可视化开发/">数据可视化开发</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/09/25/实体关系模型和维度模型/" data-title="实体关系模型和维度模型 | DataVizArt" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/09/27/Hide-Fields-In-Current-Selection-Box/" title="Hide Fields In Current Selection Box">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  Hide Fields In Current Selection Box</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/09/20/Interval-Match-Feature-In-Qlikview/"  title="Interval Match Feature In Qlikview">
+ <strong>NEXT:</strong><br/> 
+ <span>Interval Match Feature In Qlikview
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+  <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#关系模型"><span class="toc-number">1.</span> <span class="toc-text">关系模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#维度模型"><span class="toc-number">2.</span> <span class="toc-text">维度模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优劣"><span class="toc-number">3.</span> <span class="toc-text">优劣</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  <div class="rsspart">
+	<a href="/rss.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+			<li><a href="/categories/JavaScript可视化/" title="JavaScript可视化">JavaScript可视化<sup>2</sup></a></li>
+		
+			<li><a href="/categories/QlikView11读书笔记/" title="QlikView11读书笔记">QlikView11读书笔记<sup>7</sup></a></li>
+		
+			<li><a href="/categories/业界杂谈/" title="业界杂谈">业界杂谈<sup>2</sup></a></li>
+		
+			<li><a href="/categories/数据可视化作品/" title="数据可视化作品">数据可视化作品<sup>5</sup></a></li>
+		
+			<li><a href="/categories/数据可视化开发/" title="数据可视化开发">数据可视化开发<sup>6</sup></a></li>
+		
+			<li><a href="/categories/资源工具汇总/" title="资源工具汇总">资源工具汇总<sup>7</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/API/" title="API">API<sup>1</sup></a></li>
+		
+			<li><a href="/tags/D3/" title="D3">D3<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Gephi/" title="Gephi">Gephi<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Gexf/" title="Gexf">Gexf<sup>1</sup></a></li>
+		
+			<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>3</sup></a></li>
+		
+			<li><a href="/tags/Python/" title="Python">Python<sup>5</sup></a></li>
+		
+			<li><a href="/tags/QlikView/" title="QlikView">QlikView<sup>15</sup></a></li>
+		
+			<li><a href="/tags/Selenium/" title="Selenium">Selenium<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Splinter/" title="Splinter">Splinter<sup>1</sup></a></li>
+		
+			<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
+		
+			<li><a href="/tags/创业/" title="创业">创业<sup>1</sup></a></li>
+		
+			<li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li>
+		
+			<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+		
+			<li><a href="/tags/数据可视化/" title="数据可视化">数据可视化<sup>1</sup></a></li>
+		
+			<li><a href="/tags/数据模型/" title="数据模型">数据模型<sup>2</sup></a></li>
+		
+			<li><a href="/tags/爬虫/" title="爬虫">爬虫<sup>4</sup></a></li>
+		
+			<li><a href="/tags/转载/" title="转载">转载<sup>5</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+      <li><a href="http://junwenzhang.com/" target="_blank" title="Hexo">junwenzhang's room</a></li>
+    </ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		
+		<a href="http://yoursite.com" target="_blank" title="Jack">Jack</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"null"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+  </body>
+</html>
+
