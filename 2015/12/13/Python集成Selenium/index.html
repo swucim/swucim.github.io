@@ -52,14 +52,12 @@ You need to install Selenium package with ‘pip install selenium’ command">
 					
 						<li><a href="/about">About</a></li>
 					
-						<li><a href="/about/resume.html">Resume</a></li>
-					
 					<li>
 					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
 						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:yoursite.com">
+						<input type="hidden" name="q" value="site:datavizart.com">
 					</form>
 					
 					</li>
@@ -78,11 +76,11 @@ You need to install Selenium package with ‘pip install selenium’ command">
   </h1>
   <p class="article-author">By
     
-      <a href="http://yoursite.com" title="Jack">Jack</a>
+      <a href="http://datavizart.com" title="Jack">Jack</a>
     </p>
   <p class="article-time">
     <time datetime="2015-12-13T05:38:27.000Z" itemprop="datePublished">2015-12-13</time>
-    Updated:<time datetime="2016-01-22T07:59:02.000Z" itemprop="dateModified">2016-01-22</time>
+    Updated:<time datetime="2016-08-10T14:23:51.000Z" itemprop="dateModified">2016-08-10</time>
     
   </p>
 </header>
@@ -101,25 +99,29 @@ You need to install Selenium package with ‘pip install selenium’ command">
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.action_chains <span class="keyword">import</span> ActionChains</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> MySQLdb</span><br><span class="line"><span class="keyword">import</span>  pdb</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sql_query</span><span class="params">(sql_statement)</span>:</span></span><br><span class="line">        conn=MySQLdb.connect(host=<span class="string">'localhost'</span>,user=<span class="string">'root'</span>,passwd=<span class="string">'admin'</span>,db=<span class="string">'renmin'</span>,port=<span class="number">3306</span>,charset=<span class="string">'utf8'</span>)</span><br><span class="line">        cur = conn.cursor()</span><br><span class="line">        sql = sql_statement</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            cur.execute(sql)</span><br><span class="line">            conn.commit()</span><br><span class="line">            <span class="comment">#print 'sql statement success'</span></span><br><span class="line">        <span class="keyword">except</span> StandardError, e:</span><br><span class="line">            conn.rollback()</span><br><span class="line">            <span class="keyword">print</span> <span class="string">'sql statement fail__'</span>+sql_statement</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">search_renmin</span><span class="params">(key_word,wait_seconds,all_flag)</span>:</span></span><br><span class="line">    driver = webdriver.Firefox()</span><br><span class="line">    driver.get(<span class="string">'http://search.people.com.cn/rmw/GB/rmwsearch/'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># set search key word, start/end date and each page number</span></span><br><span class="line">    driver.find_element_by_class_name(<span class="string">"tt09_input01"</span>).send_keys(key_word.decode(<span class="string">'utf-8'</span>))</span><br><span class="line">    driver.find_element_by_name(<span class="string">"PAGECOUNT"</span>).send_keys(<span class="number">80</span>)</span><br><span class="line">    driver.find_element_by_name(<span class="string">"DATEFROM"</span>).send_keys(<span class="string">"2012-12-01"</span>)</span><br><span class="line">    driver.find_element_by_name(<span class="string">"DATETO"</span>).send_keys(<span class="string">"2015-12-07"</span>)</span><br><span class="line">    <span class="comment"># click seach</span></span><br><span class="line">    driver.find_element_by_xpath(<span class="string">'//div[@class="tt09"]/div[@style="width:90%;"]/input[@value="搜索"]'</span>).click()</span><br><span class="line">    <span class="comment"># element = driver.find_element_by_xpath('//div[@class="tt09"]/div[@style="width:90%;"]/input[@value="搜索"]')</span></span><br><span class="line">    <span class="comment"># ActionChains(driver).context_click(element).perform()</span></span><br><span class="line">    counter = <span class="number">1</span> <span class="comment">#page counter</span></span><br><span class="line">    search_page(driver, counter,key_word,wait_seconds,all_flag)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">search_page</span><span class="params">(driver, counter,key_word,wait_seconds,all_flag)</span>:</span></span><br><span class="line">    time.sleep(wait_seconds) <span class="comment">#waiting for page loading, pending on network status</span></span><br><span class="line">    news_element = driver.find_elements_by_xpath(<span class="string">'//div[@id="DETAILELE"]/table/tbody/tr/td[@class="f"]/a/font'</span>)</span><br><span class="line">    link_element = driver.find_elements_by_xpath(<span class="string">'//div[@id="DETAILELE"]/table/tbody/tr/td[@class="f"]/a'</span>)</span><br><span class="line">    time_element = driver.find_elements_by_xpath(<span class="string">'//div[@id="DETAILELE"]/table/tbody/tr/td[@class="f"]'</span>)</span><br><span class="line">    content_element = driver.find_elements_by_xpath(<span class="string">'//div[@id="DETAILELE"]/table/tbody/tr/td[@class="f"]/font'</span>)</span><br><span class="line">    total_counter_element = driver.find_element_by_id(<span class="string">"TOTALCOUNTELE"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># get total records number</span></span><br><span class="line">    total_counter = <span class="string">''</span>.join(total_counter_element.text.split(<span class="string">"项"</span>.decode(<span class="string">'utf-8'</span>))[<span class="number">0</span>][<span class="number">2</span>:])</span><br><span class="line">    <span class="comment"># print int(total_counter)+1</span></span><br><span class="line">    <span class="comment"># each page fullfilled records counter</span></span><br><span class="line">    record_counter = <span class="number">0</span></span><br><span class="line">    news_title,news_link,news_content,public_time = <span class="string">''</span>,<span class="string">''</span>,<span class="string">''</span>,<span class="string">''</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(news_element)):</span><br><span class="line">        <span class="keyword">if</span> all_flag &gt; <span class="number">0</span>:</span><br><span class="line">            tempstr = time_element[i].text.strip()</span><br><span class="line">            public_time = (<span class="string">''</span>.join(tempstr[-<span class="number">20</span>:])).strip().strip(<span class="string">'-'</span>)</span><br><span class="line">            news_title = news_element[i].text</span><br><span class="line">            news_link = <span class="string">''</span>.join(link_element[i].get_attribute(<span class="string">"href"</span>))</span><br><span class="line">            news_content = content_element[i].text.strip()</span><br><span class="line">            record_counter = record_counter + <span class="number">1</span></span><br><span class="line">            sql = <span class="string">"insert into news2(title,link,content,time) values('%s','%s','%s','%s');"</span>%\</span><br><span class="line">                  (news_title,news_link,news_content,public_time)</span><br><span class="line">            sql_query(sql)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># if title contains key words then insert into db</span></span><br><span class="line">            <span class="keyword">if</span> key_word.decode(<span class="string">'utf-8'</span>) <span class="keyword">in</span> news_element[i].text:</span><br><span class="line">                <span class="comment"># get news public date and time</span></span><br><span class="line">                tempstr = time_element[i].text.strip()</span><br><span class="line">                public_time = (<span class="string">''</span>.join(tempstr[-<span class="number">20</span>:])).strip().strip(<span class="string">'-'</span>)</span><br><span class="line">                news_title = news_element[i].text</span><br><span class="line">                news_link = <span class="string">''</span>.join(link_element[i].get_attribute(<span class="string">"href"</span>))</span><br><span class="line">                news_content = content_element[i].text.strip()</span><br><span class="line">                record_counter = record_counter + <span class="number">1</span></span><br><span class="line">                sql = <span class="string">"insert into news2(title,link,content,time) values('%s','%s','%s','%s');"</span>%\</span><br><span class="line">                      (news_title,news_link,news_content,public_time)</span><br><span class="line">                sql_query(sql)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'---Page '</span>+str(counter)+<span class="string">'---'</span>+str(record_counter)+<span class="string">'/80 records fetched!----total:'</span>+str(counter*<span class="number">80</span>)+<span class="string">'/'</span>+total_counter</span><br><span class="line">    <span class="comment"># click next page</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># recursive function</span></span><br><span class="line">        <span class="keyword">if</span> (counter+<span class="number">1</span>)*<span class="number">80</span> &lt; int(total_counter):</span><br><span class="line">            driver.find_element_by_xpath(<span class="string">'//div[@class="tt10b"]/table/tbody/tr[@id="PAGEELE"]/td[3]/input[1]'</span>).click()</span><br><span class="line">            search_page(driver, counter+<span class="number">1</span>,key_word,wait_seconds,all_flag)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">print</span> <span class="string">'fetch '</span>+key_word.decode(<span class="string">'utf-8'</span>)+<span class="string">' done!'</span></span><br><span class="line">            driver.close()</span><br><span class="line">            time.sleep(<span class="number">10</span>)</span><br><span class="line">    <span class="keyword">except</span> StandardError, e:</span><br><span class="line">        <span class="keyword">print</span> e.message</span><br><span class="line"></span><br><span class="line"><span class="comment"># main function</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    key_words = [<span class="string">"重庆"</span>,<span class="string">"成都"</span>]</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> key_words:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'start searching: '</span> + k.decode(<span class="string">'utf-8'</span>)</span><br><span class="line">        <span class="comment"># first parameter means key word</span></span><br><span class="line">        <span class="comment"># second parameter means waiting second for each time page loading</span></span><br><span class="line">        <span class="comment"># third parameter means if search in all contents, &gt;0 for YES, =0 for NO</span></span><br><span class="line">        search_renmin(k,<span class="number">20</span>,<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'fetch all key words done!</span></span><br></pre></td></tr></table></figure>
   
+		
+			<code><b>    版权声明</b>:本文由<b><a href="/about" target="_blank" title="Jack">Jack</a></b>创作和发表,采用<b>署名(BY)</b>-<b>非商业性使用(NC)</b>-<b>相同方式共享(SA)</b>国际许可协议进行许可,转载请注明作者及出处,本文作者为<b><a href="/about" target="_blank" title="Jack">Jack</a></b>,本文标题为<b><a href="/2015/12/13/Python集成Selenium/" target="_blank" title="Python集成Selenium抓取动态网页示例">Python集成Selenium抓取动态网页示例</a></b>,本文链接为<b><a href="/2015/12/13/Python集成Selenium/" target="_blank" title="Python集成Selenium抓取动态网页示例">http://datavizart.com/2015/12/13/Python集成Selenium/</a></b>.</code>
+
+		
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Python/">Python</a><a href="/tags/Selenium/">Selenium</a><a href="/tags/爬虫/">爬虫</a>
+  <span></span> <a href="/tags/Selenium/">Selenium</a><a href="/tags/爬虫/">爬虫</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/数据可视化作品/">数据可视化作品</a>
+  <a class="article-category-link" href="/categories/Python/">Python</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2015/12/13/Python集成Selenium/" data-title="Python集成Selenium抓取动态网页示例 | DataVizArt" data-tsina="null" class="share clearfix">
+  <div data-url="http://datavizart.com/2015/12/13/Python集成Selenium/" data-title="Python集成Selenium抓取动态网页示例 | DataVizArt" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -173,17 +175,27 @@ You need to install Selenium package with ‘pip install selenium’ command">
 	<p class="asidetitle">Categories</p>
 		<ul>
 		
-			<li><a href="/categories/JavaScript可视化/" title="JavaScript可视化">JavaScript可视化<sup>2</sup></a></li>
+			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>3</sup></a></li>
 		
-			<li><a href="/categories/QlikView11读书笔记/" title="QlikView11读书笔记">QlikView11读书笔记<sup>7</sup></a></li>
+			<li><a href="/categories/JavaScript可视化/" title="JavaScript可视化">JavaScript可视化<sup>0</sup></a></li>
 		
-			<li><a href="/categories/业界杂谈/" title="业界杂谈">业界杂谈<sup>2</sup></a></li>
+			<li><a href="/categories/Others/" title="Others">Others<sup>8</sup></a></li>
 		
-			<li><a href="/categories/数据可视化作品/" title="数据可视化作品">数据可视化作品<sup>5</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>5</sup></a></li>
 		
-			<li><a href="/categories/数据可视化开发/" title="数据可视化开发">数据可视化开发<sup>6</sup></a></li>
+			<li><a href="/categories/QlikView/" title="QlikView">QlikView<sup>15</sup></a></li>
 		
-			<li><a href="/categories/资源工具汇总/" title="资源工具汇总">资源工具汇总<sup>7</sup></a></li>
+			<li><a href="/categories/QlikView11读书笔记/" title="QlikView11读书笔记">QlikView11读书笔记<sup>0</sup></a></li>
+		
+			<li><a href="/categories/Tableau/" title="Tableau">Tableau<sup>1</sup></a></li>
+		
+			<li><a href="/categories/业界杂谈/" title="业界杂谈">业界杂谈<sup>0</sup></a></li>
+		
+			<li><a href="/categories/数据可视化作品/" title="数据可视化作品">数据可视化作品<sup>0</sup></a></li>
+		
+			<li><a href="/categories/数据可视化开发/" title="数据可视化开发">数据可视化开发<sup>0</sup></a></li>
+		
+			<li><a href="/categories/资源工具汇总/" title="资源工具汇总">资源工具汇总<sup>0</sup></a></li>
 		
 		</ul>
 </div>
@@ -194,7 +206,7 @@ You need to install Selenium package with ‘pip install selenium’ command">
 	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/API/" title="API">API<sup>1</sup></a></li>
+			<li><a href="/tags/API/" title="API">API<sup>0</sup></a></li>
 		
 			<li><a href="/tags/D3/" title="D3">D3<sup>2</sup></a></li>
 		
@@ -202,31 +214,37 @@ You need to install Selenium package with ‘pip install selenium’ command">
 		
 			<li><a href="/tags/Gexf/" title="Gexf">Gexf<sup>1</sup></a></li>
 		
-			<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>3</sup></a></li>
+			<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>2</sup></a></li>
 		
-			<li><a href="/tags/Python/" title="Python">Python<sup>5</sup></a></li>
+			<li><a href="/tags/Python/" title="Python">Python<sup>0</sup></a></li>
 		
-			<li><a href="/tags/QlikView/" title="QlikView">QlikView<sup>15</sup></a></li>
+			<li><a href="/tags/QlikView/" title="QlikView">QlikView<sup>0</sup></a></li>
 		
 			<li><a href="/tags/Selenium/" title="Selenium">Selenium<sup>1</sup></a></li>
 		
 			<li><a href="/tags/Splinter/" title="Splinter">Splinter<sup>1</sup></a></li>
 		
+			<li><a href="/tags/Tableau/" title="Tableau">Tableau<sup>1</sup></a></li>
+		
+			<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+		
 			<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
 		
-			<li><a href="/tags/创业/" title="创业">创业<sup>1</sup></a></li>
+			<li><a href="/tags/word-cloud/" title="word cloud">word cloud<sup>1</sup></a></li>
+		
+			<li><a href="/tags/创业/" title="创业">创业<sup>0</sup></a></li>
 		
 			<li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li>
 		
-			<li><a href="/tags/工具/" title="工具">工具<sup>1</sup></a></li>
+			<li><a href="/tags/可视化案例/" title="可视化案例">可视化案例<sup>3</sup></a></li>
 		
-			<li><a href="/tags/数据可视化/" title="数据可视化">数据可视化<sup>1</sup></a></li>
+			<li><a href="/tags/工具/" title="工具">工具<sup>0</sup></a></li>
 		
-			<li><a href="/tags/数据模型/" title="数据模型">数据模型<sup>2</sup></a></li>
+			<li><a href="/tags/数据可视化/" title="数据可视化">数据可视化<sup>0</sup></a></li>
 		
-			<li><a href="/tags/爬虫/" title="爬虫">爬虫<sup>4</sup></a></li>
+			<li><a href="/tags/数据模型/" title="数据模型">数据模型<sup>1</sup></a></li>
 		
-			<li><a href="/tags/转载/" title="转载">转载<sup>5</sup></a></li>
+			<li><a href="/tags/爬虫/" title="爬虫">爬虫<sup>5</sup></a></li>
 		
 		</ul>
 </div>
@@ -257,9 +275,10 @@ You need to install Selenium package with ‘pip install selenium’ command">
 		
 		
 	</div>
+		
 		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
 		
-		<a href="http://yoursite.com" target="_blank" title="Jack">Jack</a>
+		<a href="http://datavizart.com" target="_blank" title="Jack">Jack</a>
 		
 		</p>
 </div>
